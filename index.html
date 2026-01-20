@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plusflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container" onclick="showSection('landing')">
+            <div class="logo-icon"></div>
+            <div class="logo-text">PLUSFLIX</div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-link" onclick="showSection('home')">Filmy</li>
+            <li class="nav-link">Seriale</li>
+            <li class="nav-link">Gatunki</li>
+            <li class="nav-link">Rok produkcji</li>
+        </ul>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora...">
+        </div>
+    </nav>
+
+    <section id="landing" class="section-landing">
+        <h1 class="hero-title">Lorem ipsum dolor sit amet.</h1>
+        <p class="hero-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae.</p>
+        <button class="btn-primary" onclick="showSection('home')">Odkryj</button>
+    </section>
+
+    <section id="home" class="section-home">
+        
+        <div class="category-row">
+            <h2 class="category-title">Popularne:</h2>
+            <div class="movies-grid">
+                <div class="movie-card popular-movie-2" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card popular-movie-1" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card popular-movie-3" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card popular-movie-4" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card popular-movie-5" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card popular-movie-6" onclick="window.location.href='movie.html'"></div>
+            </div>
+        </div>
+
+        <div class="category-row">
+            <h2 class="category-title">Najlepsze:</h2>
+            <div class="movies-grid">
+                <div class="movie-card best-movie-1" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card best-movie-2" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card best-movie-3" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card best-movie-4" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card best-movie-5" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card best-movie-6" onclick="window.location.href='movie.html'"></div>
+            </div>
+        </div>
+
+        <div class="category-row">
+            <h2 class="category-title">Ulubione:</h2>
+            <div class="movies-grid">
+                <div class="movie-card favorite-movie-1" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card favorite-movie-2" onclick="window.location.href='movie.html'"></div>
+                <div class="movie-card favorite-movie-3" onclick="window.location.href='movie.html'"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>Projekt w ramach zajęć:<br>Aplikacje Internetowe 1 - Wydział Informatyki ZUT w Szczecinie<br>Grupa: <b>Naspeedowane Grzybki</b> 🍄‍🟫</footer>
+</body>
+</html>

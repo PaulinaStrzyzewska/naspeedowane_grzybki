@@ -1,0 +1,387 @@
+/* --- ZMIENNE KOLORYSTYCZNE Z FIGMY --- */
+:root {
+    --primary-gray: #afafaf;  /* Główny kolor elementów i tekstów */
+    --bg-body: #ffffff;       /* Tło strony */
+    --bg-light: #f5f5f5;      /* Tło przycisków */
+    --bg-placeholder: #d9d9d9; /* Tło kafelków/obrazków */
+    --bg-navbar: #e9e9e9;     /* Tło nawigacji (z niektórych ramek) */
+    --text-dark: #333333;     /* Dla czytelności, tam gdzie w Figmie był czarny */
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-body);
+    color: var(--primary-gray);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- NAWIGACJA (NAVBAR) --- */
+.navbar {
+    background-color: var(--bg-navbar); /* Z ramki 106:272 */
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ikona logo (trójkąt z Figmy) */
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-gray);
+    clip-path: polygon(0 0, 0% 100%, 100% 50%); /* Kształt trójkąta */
+    border-radius: 4px;
+}
+
+.logo-text {
+    font-size: 2rem; /* 32px-48px w Figmie */
+    font-weight: 700;
+    color: var(--primary-gray);
+    letter-spacing: -1px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1.2rem; /* 32px w Figmie zmniejszone dla WWW */
+    font-weight: 700;
+    color: var(--primary-gray);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Separatory pionowe z Figmy */
+.nav-link:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    background-color: var(--primary-gray);
+    margin-left: 2rem;
+    vertical-align: middle;
+}
+
+.search-bar {
+    background-color: var(--primary-gray);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: white; /* Tekst wewnątrz searchbara */
+    width: 100%;
+    outline: none;
+    font-weight: 700;
+}
+.search-input::placeholder { color: #f5f5f5; }
+
+/* --- SEKCJA LANDING PAGE (Hero) --- */
+.section-landing {
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 3rem; /* 64px w Figmie */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-gray);
+}
+
+.hero-desc {
+    font-size: 1.5rem; /* 36px w Figmie */
+    max-width: 900px;
+    margin-bottom: 3rem;
+    color: var(--primary-gray);
+}
+
+.btn-primary {
+    background-color: var(--primary-gray);
+    color: var(--bg-light);
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* --- STRONA GŁÓWNA (Listy filmów) --- */
+.section-home {
+    padding: 2rem;
+    display: none; /* Ukryta domyślnie, JS ją pokaże */
+}
+
+.category-row {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 2rem; /* 34px w Figmie */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-gray);
+}
+
+/* Poziomy scroll dla kafelków (Netflix style) */
+.movies-grid {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    /* Ukrywanie paska przewijania */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.movies-grid::-webkit-scrollbar { display: none; }
+
+/* Kafelek filmu (Rectangle z Figmy) */
+.movie-card {
+    min-width: 150px;
+    height: 220px;
+    background-color: var(--bg-placeholder);
+    border-radius: 8px;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.movie-card:hover { opacity: 0.8; }
+
+/* Nawigacja lewo/prawo (strzałki z Figmy) */
+.scroll-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- SZCZEGÓŁY FILMU --- */
+.section-details {
+    padding: 4rem 2rem;
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.details-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 4rem;
+}
+
+.movie-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.movie-rating {
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* margin-bottom: 2rem; */
+}
+
+.details-desc {
+    font-size: 1.2rem;
+    text-align: justify;
+    /* margin-bottom: 2rem; */
+    line-height: 1.6;
+}
+
+.details-meta {
+    font-size: 1rem;
+    /* margin-bottom: 2rem; */
+    /* border-top: 2px solid var(--primary-gray); */
+    /* border-bottom: 2px solid var(--primary-gray); */
+    /* padding: 1rem 0; */
+}
+
+.poster-placeholder {
+    width: 100%;
+    height: 500px;
+    background-color: var(--bg-placeholder);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #999;
+}
+
+
+.comment-box {
+    background-color: #f8f7f7;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-placeholder);
+}
+
+/* --- RWD --- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .hero-desc { font-size: 1rem; }
+    .nav-menu { display: none; } /* Uproszczenie na mobile */
+    .details-container { grid-template-columns: 1fr; }
+    .poster-placeholder { order: -1; height: 350px; }
+}
+
+
+
+footer {
+    background-color: var(--bg-navbar);
+    text-align: left;
+    padding: 1rem 2rem;
+    font-weight: 400;
+    color: var(--primary-gray);
+    margin-top: 2rem;
+}
+
+hr {
+    margin: 1.4rem 0rem;
+}
+
+
+.comment-form {
+    display: grid;
+    /* Dwie kolumny:
+       1. 150px (lub inna sztywna wartość) dla pliku
+       2. 1fr (reszta miejsca) dla tekstów */
+    grid-template-columns: 150px 1fr;
+    /* Wiersze dopasowane do zawartości */
+    grid-template-rows: auto 1fr auto; 
+    gap: 1rem; /* Odstęp między elementami */
+    max-width: 800px; /* Opcjonalne: maksymalna szerokość całego formularza */
+}
+
+.comment-file-input {
+    /* To sprawia, że input zajmuje lewą kolumnę i rozciąga się
+       od 1. do 3. linii siatki (czyli na wysokość obu pól tekstowych) */
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    
+    width: 100%;
+    height: 100%;
+    border: 2px dashed var(--primary-gray, #ccc); /* Styl ramki */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.comment-nickname {
+    grid-column: 2;
+    grid-row: 1;
+    place-content: center;
+    width: 100%;
+    align-items: baseline;
+    border: 2px solid var(--primary-gray, #ccc);
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    resize: vertical;
+    box-sizing: border-box; /* Ważne, aby padding nie psuł szerokości */
+}
+
+.comment-input {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    min-height: 100px; /* Wysokość dolnego pola komentarza */
+    border: 2px solid var(--primary-gray, #ccc);
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    resize: vertical;
+    box-sizing: border-box;
+    
+}
+
+.btn-primary-comment {
+    /* Przycisk ląduje w prawej kolumnie, pod komentarzem */
+    grid-column: 2; 
+    grid-row: 3;
+    
+    margin-top: 0.5rem;
+    justify-self: end; /* Przycisk wyrównany do lewej w swojej kolumnie */
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.movie-platforms-name {
+    font-weight: 700;
+}
+
+.movie-platform-details::before {
+    content: " (";
+}
+.movie-platform-details::after {
+    content: ")";
+}
+
+
+
+
+
+
+
+
+dev {
+    background-color: rgb(192, 255, 192);
+    color: green;
+}
+dev::before {
+    content: "// ";
+}
+dev::after {
+    content: "\A";
+    white-space: pre;
+}

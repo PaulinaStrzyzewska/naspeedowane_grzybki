@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plusflix - Nazwa_Filmu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='index.html'">
+            <div class="logo-icon"></div>
+            <div class="logo-text">PLUSFLIX</div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-link" onclick="window.location.href='index.html?section=home'">Filmy</li>
+            <li class="nav-link">Seriale</li>
+            <li class="nav-link">Gatunki</li>
+            <li class="nav-link">Rok produkcji</li>
+        </ul>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora...">
+        </div>
+    </nav>
+    <section id="details" class="section-details">
+        <div class="details-container">
+            <div class="details-content">
+                <h1 class="movie-title">Tytuł Serialu</h1>
+                <div class="movie-rating">Średnia ocen - 4,67 / 5.00</div>
+                <hr>
+                
+                <p class="details-desc">
+                    <dev>Pobierane z bazy danych - opis to span z klasą "movie-description"</dev>
+                    <b>Opis:</b><span class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</span>
+                </p>
+                <hr>
+                <div class="details-meta">
+                    <dev>Tutaj musi pobrać z bazy. Zdefiniowane jest jako lista z klasą "list-movie-platforms"</dev><dev>Kazdy li składa się z dwóch spanów - 1. do nazwy platformy, 2. do dostępności na platformie</dev>
+                    <b>Dostępny w:</b><br>
+                    <ul class="list-movie-platforms">
+                        <li><span class="movie-platforms-name">Netflix</span><span class="movie-platform-details">Wszystkie sezony</span></li>
+                        <li><span class="movie-platforms-name">Disney+</span><span class="movie-platform-details">Tylko 1 sezon</span></li>
+                        <li><span class="movie-platforms-name">Amazon Prime</span><span class="movie-platform-details">Do wypożyczenia</span></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="details-meta">
+                    <dev>Jak wcześniej - pobierane z bazy. Zapisane jako spany</dev>
+                    <dev>"movie-director", "movie-actors", "movie-genre", "movie-year"</dev>
+                    <b>Szczegóły:</b><br>
+                    Reżyser: <span class="movie-director">John Pork</span><br>
+                    Aktorzy: <span class="movie-actors">Patrick Texas, Wojciech Cejrowski, Karol NowRocky</span><br>
+                    Gatunek: <span class="movie-genre">Komedia, Dramat</span><br>
+                    Rok produkcji: <span class="movie-year">2025</span>
+                </div>
+                <hr>
+                <div class="comments-section">
+                    <h3 class="category-title" style="font-size: 1.5rem;">Komentarze:</h3>
+                    
+                    <div class="comment-box">
+                        <div class="avatar"></div>
+                        <div>
+                            <strong>Anon</strong><br>
+                            Jeden z lepszych seriali, które oglądałem ❤️
+                        </div>
+                    </div>
+                    <div class="comment-box">
+                        <div class="avatar"></div>
+                        <div>
+                            <strong>Anon 2</strong><br>
+                            Najgorsze jest to, że się skończył 😭
+                        </div>
+                    </div>
+                    <form class="comment-form">
+                        <label class="comment-file-input">
+                            <span class="file-text" style="font-size: 0.8rem; margin-top: 5px;">Zdjęcie profilowe</span><br>
+                            <span style="font-weight: 700; background: #ddd; padding: 5px 10px; border-radius: 4px;">Wybierz plik</span>
+                            <span class="file-text" style="font-size: 0.8rem; margin-top: 5px;">Nie wybrano pliku</span>
+                            <input type="file" accept="image/*" style="display: none;" onchange="this.parentElement.querySelector('.file-text').textContent = this.files[0] ? this.files[0].name : 'Nie wybrano pliku'">
+                        </label>
+                        <textarea class="comment-nickname" placeholder="Twoja nazwa"></textarea>
+                        <textarea class="comment-input" placeholder="Dodaj komentarz..."></textarea>
+                        <button type="submit" class="btn-primary-comment" style="margin-top: 0.5rem;">Dodaj komentarz</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="details-sidebar">
+                <div style="margin: 1rem 0rem; text-align: center; font-weight: 700; font-size: 1.2rem;">
+                    Dodaj do ulubionych ❤️
+                </div>
+                <div class="poster-placeholder">PLAKAT</div>
+                <div style="margin-top: 1rem; text-align: center;">
+                    Twoja ocena<br>☆☆☆☆☆
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>Projekt w ramach zajęć:<br>Aplikacje Internetowe 1 - Wydział Informatyki ZUT w Szczecinie<br>Grupa: <b>Naspeedowane Grzybki</b> 🍄‍🟫</footer>
+</body>
+</html>

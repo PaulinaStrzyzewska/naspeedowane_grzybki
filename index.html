@@ -14,16 +14,22 @@
             <div class="logo-icon"></div>
             <div class="logo-text">PLUSFLIX</div>
         </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         
-        <ul class="nav-menu">
-            <li class="nav-link" onclick="showSection('home')">Filmy</li>
-            <li class="nav-link">Seriale</li>
-            <li class="nav-link">Gatunki</li>
-            <li class="nav-link">Rok produkcji</li>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-link" onclick="showSection('home'); toggleMenu()">Filmy</li>
+            <li class="nav-link" onclick="toggleMenu()">Seriale</li>
+            <li class="nav-link" onclick="toggleMenu()">Gatunki</li>
+            <li class="nav-link" onclick="toggleMenu()">Rok produkcji</li>
         </ul>
 
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora...">
+            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora, reżysera...">
         </div>
     </nav>
 
@@ -37,34 +43,53 @@
         
         <div class="category-row">
             <h2 class="category-title">Popularne:</h2>
-            <div class="movies-grid">
-                <div class="movie-card popular-movie-2" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card popular-movie-1" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card popular-movie-3" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card popular-movie-4" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card popular-movie-5" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card popular-movie-6" onclick="window.location.href='movie.html'"></div>
+            <div class="movies-slider">
+                <button class="scroll-arrow left" onclick="scrollMovies(this.parentElement, -600)">&#10094;</button>
+                <div class="movies-grid">
+                    <div class="movie-card popular-movie-2" onclick="window.location.href='movie.html'">
+                        <div class="fav-badge" onclick="toggleFav(event, this)">&#9825;</div>
+                    </div>
+                    <div class="movie-card popular-movie-1" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card popular-movie-3" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card popular-movie-4" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card popular-movie-5" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card popular-movie-6" onclick="window.location.href='movie.html'"></div>
+                </div>
+                <button class="scroll-arrow right" onclick="scrollMovies(this.parentElement, 600)">&#10095;</button>
             </div>
         </div>
 
         <div class="category-row">
             <h2 class="category-title">Najlepsze:</h2>
-            <div class="movies-grid">
-                <div class="movie-card best-movie-1" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card best-movie-2" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card best-movie-3" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card best-movie-4" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card best-movie-5" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card best-movie-6" onclick="window.location.href='movie.html'"></div>
+            <div class="movies-slider">
+                <button class="scroll-arrow left" onclick="scrollMovies(this.parentElement, -600)">&#10094;</button>
+                <div class="movies-grid">
+                    <div class="movie-card best-movie-1" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card best-movie-2" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card best-movie-3" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card best-movie-4" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card best-movie-5" onclick="window.location.href='movie.html'"></div>
+                    <div class="movie-card best-movie-6" onclick="window.location.href='movie.html'"></div>
+                </div>
+                <button class="scroll-arrow right" onclick="scrollMovies(this.parentElement, 600)">&#10095;</button>
             </div>
         </div>
 
         <div class="category-row">
             <h2 class="category-title">Ulubione:</h2>
-            <div class="movies-grid">
-                <div class="movie-card favorite-movie-1" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card favorite-movie-2" onclick="window.location.href='movie.html'"></div>
-                <div class="movie-card favorite-movie-3" onclick="window.location.href='movie.html'"></div>
+            <div class="movies-slider">
+                <button class="scroll-arrow left" onclick="scrollMovies(this.parentElement, -600)">&#10094;</button>
+                <div class="movies-grid">
+                    <div class="movie-card favorite-movie-1" onclick="window.location.href='movie.html'">
+                        <div class="fav-badge" onclick="toggleFav(event, this)">&#9825;</div>
+                    </div>
+                    <div class="movie-card favorite-movie-2" onclick="window.location.href='movie.html'">
+                        <div class="fav-badge" onclick="toggleFav(event, this)">&#9825;</div>
+                    </div>
+                    <div class="movie-card favorite-movie-3" onclick="window.location.href='movie.html'">
+                        <div class="fav-badge" onclick="toggleFav(event, this)">&#9825;</div>
+                </div>
+                <button class="scroll-arrow right" onclick="scrollMovies(this.parentElement, 600)">&#10095;</button>
             </div>
         </div>
     </section>

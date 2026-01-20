@@ -15,20 +15,43 @@
             <div class="logo-icon"></div>
             <div class="logo-text">PLUSFLIX</div>
         </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         
         <ul class="nav-menu">
-            <li class="nav-link" onclick="window.location.href='index.html?section=home'">Filmy</li>
-            <li class="nav-link">Seriale</li>
-            <li class="nav-link">Gatunki</li>
-            <li class="nav-link">Rok produkcji</li>
+            <li class="nav-link" onclick="window.location.href='index.html?section=home', toggleMenu()">Filmy</li>
+            <li class="nav-link" onclick="toggleMenu()">Seriale</li>
+            <li class="nav-link" onclick="toggleMenu()">Gatunki</li>
+            <li class="nav-link" onclick="toggleMenu()">Rok produkcji</li>
         </ul>
 
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora...">
+            <input type="text" class="search-input" placeholder="Wpisz tytuł, aktora, reżysera...">
         </div>
     </nav>
     <section id="details" class="section-details">
         <div class="details-container">
+
+            <div class="mobile-fav-section">
+                Dodaj do ulubionych ❤️
+            </div>
+
+            <div class="details-poster-hero" style="background-image: url('link-do-plakatu.jpg');">
+                <div class="details-poster-overlay">
+                    <h1 class="movie-title-hero">Tytuł Serialu</h1>
+                    <div class="movie-rating-hero">Średnia ocen - 4,67 / 5.00</div>
+                </div>
+            </div>
+
+            <div class="mobile-user-rating">
+                Twoja ocena<br>
+                <span class="stars">☆☆☆☆☆</span>
+            </div>
+
             <div class="details-content">
                 <h1 class="movie-title">Tytuł Serialu</h1>
                 <div class="movie-rating">Średnia ocen - 4,67 / 5.00</div>
@@ -79,7 +102,7 @@
                     <form class="comment-form">
                         <label class="comment-file-input">
                             <span class="file-text" style="font-size: 0.8rem; margin-top: 5px;">Zdjęcie profilowe</span><br>
-                            <span style="font-weight: 700; background: #ddd; padding: 5px 10px; border-radius: 4px;">Wybierz plik</span>
+                            <span style="font-weight: 700; background: #232867; padding: 5px 10px; border-radius: 4px;">Wybierz plik</span>
                             <span class="file-text" style="font-size: 0.8rem; margin-top: 5px;">Nie wybrano pliku</span>
                             <input type="file" accept="image/*" style="display: none;" onchange="this.parentElement.querySelector('.file-text').textContent = this.files[0] ? this.files[0].name : 'Nie wybrano pliku'">
                         </label>

@@ -18,6 +18,28 @@ function showSection(sectionId) {
     window.scrollTo(0,0);
 }
 
+function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+}
+
+function scrollMovies(sliderContainer, distance) {
+    const grid = sliderContainer.querySelector('.movies-grid');
+    grid.scrollBy({ left: distance, behavior: 'smooth' });
+}
+
+function toggleFav(event, element) {
+    event.stopPropagation(); // Zatrzymuje wejście w movie.html
+    element.classList.toggle('active');
+    
+    // Logika dla zwykłego symbolu serca HTML
+    if (element.classList.contains('active')) {
+        element.innerHTML = '&#10084;'; // Pełne serce
+    } else {
+        element.innerHTML = '&#9825;'; // Puste serce
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Na start sprawdź url param
     const urlParams = new URLSearchParams(window.location.search);

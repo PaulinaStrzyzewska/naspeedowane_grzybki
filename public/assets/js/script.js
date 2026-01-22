@@ -40,12 +40,31 @@ function toggleFav(event, element) {
     }
 }
 
+function toggleSessionFavorite(id){
+    const formData = new FormData();
+
+    formData.append('utwor_id', id);
+
+    fetch('/favorite/toggle', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+        .then(res => res.json()) // teraz PHP zwraca JSON
+        .then(data => console.log(data))
+        .catch(err => console.error(err));
+
+    location.reload();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Na start sprawdź url param
     const urlParams = new URLSearchParams(window.location.search);
     const section = urlParams.get('section');
 
-    // Sprawdź czy jesteśmy na głównej strukturze SPA (index.html)
+    // Sprawdź czy jesteśmy na głównej strukturze SPA (index.php)
     if (document.getElementById('landing')) {
         if (section) {
             showSection(section);

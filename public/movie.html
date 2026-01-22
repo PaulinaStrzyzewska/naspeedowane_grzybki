@@ -6,8 +6,8 @@
     <title>Plusflix - Nazwa_Filmu</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -23,7 +23,7 @@
         </div>
         
         <ul class="nav-menu">
-            <li class="nav-link" onclick="window.location.href='index.html?section=home', toggleMenu()">Filmy</li>
+            <li class="nav-link" onclick="window.location.href='index.html?section=home'; toggleMenu()">Filmy</li>
             <li class="nav-link" onclick="toggleMenu()">Seriale</li>
             <li class="nav-link" onclick="toggleMenu()">Gatunki</li>
             <li class="nav-link" onclick="toggleMenu()">Rok produkcji</li>
@@ -40,7 +40,7 @@
                 Dodaj do ulubionych ❤️
             </div>
 
-            <div class="details-poster-hero" style="background-image: url('link-do-plakatu.jpg');">
+            <div class="details-poster-hero" style="/*background-image: url('link-do-plakatu.jpg');*/">
                 <div class="details-poster-overlay">
                     <h1 class="movie-title-hero">Tytuł Serialu</h1>
                     <div class="movie-rating-hero">Średnia ocen - 4,67 / 5.00</div>
@@ -58,12 +58,13 @@
                 <hr>
                 
                 <p class="details-desc">
-                    <dev>Pobierane z bazy danych - opis to span z klasą "movie-description"</dev>
+                    <div>Pobierane z bazy danych - opis to span z klasą "movie-description"</div>
                     <b>Opis:</b><span class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</span>
                 </p>
                 <hr>
                 <div class="details-meta">
-                    <dev>Tutaj musi pobrać z bazy. Zdefiniowane jest jako lista z klasą "list-movie-platforms"</dev><dev>Kazdy li składa się z dwóch spanów - 1. do nazwy platformy, 2. do dostępności na platformie</dev>
+                    <div>Tutaj musi pobrać z bazy. Zdefiniowane jest jako lista z klasą "list-movie-platforms"</div>
+                    <div>Kazdy li składa się z dwóch spanów - 1. do nazwy platformy, 2. do dostępności na platformie</div>
                     <b>Dostępny w:</b><br>
                     <ul class="list-movie-platforms">
                         <li><span class="movie-platforms-name">Netflix</span><span class="movie-platform-details">Wszystkie sezony</span></li>
@@ -73,8 +74,8 @@
                 </div>
                 <hr>
                 <div class="details-meta">
-                    <dev>Jak wcześniej - pobierane z bazy. Zapisane jako spany</dev>
-                    <dev>"movie-director", "movie-actors", "movie-genre", "movie-year"</dev>
+                    <div>Jak wcześniej - pobierane z bazy. Zapisane jako spany</div>
+                    <div>"movie-director", "movie-actors", "movie-genre", "movie-year"</div>
                     <b>Szczegóły:</b><br>
                     Reżyser: <span class="movie-director">John Pork</span><br>
                     Aktorzy: <span class="movie-actors">Patrick Texas, Wojciech Cejrowski, Karol NowRocky</span><br>
@@ -114,7 +115,7 @@
             </div>
 
             <div class="details-sidebar">
-                <div style="margin: 1rem 0rem; text-align: center; font-weight: 700; font-size: 1.2rem;">
+                <div style="margin: 1rem 0; text-align: center; font-weight: 700; font-size: 1.2rem;">
                     Dodaj do ulubionych ❤️
                 </div>
                 <div class="poster-placeholder">PLAKAT</div>

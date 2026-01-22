@@ -1,7 +1,10 @@
 <?php
+require_once BASE_PATH . '/app/core/Controller.php';
+require_once BASE_PATH . '/app/models/Movie.php';
 
-class HomeController{
-  public function showView(){
-    require_once '../app/views/home/index.php';
-  }
+class HomeController extends Controller {
+    public function index() {
+        $movies = Movie::getPopular();
+        $this->view('home/index', compact('movies'));
+    }
 }

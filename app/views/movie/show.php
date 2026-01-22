@@ -25,8 +25,7 @@
             <hr>
 
             <p class="details-desc">
-            <div>Pobierane z bazy danych - opis to span z klasą "movie-description" (poki co nie ma w bazie)</div>
-            <b>Opis:</b><span class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</span>
+            <b>Opis: </b><span class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</span>
             </p>
             <hr>
             <div class="details-meta">
@@ -72,7 +71,14 @@
                     <div class="comment-box">
                         <div class="avatar"></div>
                         <div>
-                            <strong><?= htmlspecialchars($comment['autor_podpis']) ?></strong><br>
+                            <strong><?php
+                                if(empty($comment['autor_podpis'])){
+                                    echo "<a style='font-style: italic; font-weight: 400; opacity: .6;'>(anonim)</a>";
+                                }
+                                else{
+                                    echo htmlspecialchars($comment['autor_podpis']);
+                                }
+                            ?></strong><br>
                             <?= nl2br(htmlspecialchars($comment['tresc'])) ?>
                         </div>
                     </div>
